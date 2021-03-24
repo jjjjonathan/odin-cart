@@ -9,8 +9,16 @@ export default function Shop(props) {
         <p className="lead">Remember, none of this is real.</p>
       </div>
       <div className="shop">
-        {props.items.map((item) => {
-          return <Item title={item.title} description={item.description} />;
+        {props.items.map((item, index) => {
+          return (
+            <Item
+              title={item.title}
+              description={item.description}
+              onAddToCartClick={props.onAddToCartClick}
+              index={index}
+              key={index}
+            />
+          );
         })}
       </div>
     </div>

@@ -15,13 +15,13 @@ function App() {
     },
     {
       title: "The Nondescript Odinstone",
-      description: "You expected description? See above",
+      description: "If you expected description, See above",
       price: 9995,
       quantityInCart: 0,
     },
     {
-      title: "Ode in Car",
-      description: "The hit single. Vinyl single only",
+      title: "Ode in Cart",
+      description: "The hit single. Vinyl only",
       price: 39,
       quantityInCart: 0,
     },
@@ -32,7 +32,27 @@ function App() {
       price: 299,
       quantityInCart: 0,
     },
+    {
+      title: "Non-Odin Stone with Description",
+      description:
+        "A rock without Odin properties. Slight discount over Odin version",
+      price: 9989,
+      quantityInCart: 0,
+    },
   ]);
+
+  function handleAddToCartClick(event) {
+    const clickedIndex = event.target.dataset.index;
+    console.log(clickedIndex);
+    setItems(
+      items.map((item, index) => {
+        if (index === parseInt(clickedIndex)) {
+          item.quantityInCart += 1;
+        }
+        return item;
+      })
+    );
+  }
 
   return (
     <BrowserRouter>
@@ -47,7 +67,15 @@ function App() {
                 <Link to="/shop">Shop</Link>
               </li>
               <li>
-                <Link to="/cart">Cart</Link>
+                <Link to="/cart">
+                  Cart
+                  <span className="cart-pill">
+                    {items.reduce((accumulator, item) => {
+                      // console.log(item.title, item.quantityInCart);
+                      return accumulator + item.quantityInCart;
+                    }, 0)}
+                  </span>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -55,7 +83,7 @@ function App() {
         <main>
           <Switch>
             <Route path="/shop">
-              <Shop items={items} />
+              <Shop items={items} onAddToCartClick={handleAddToCartClick} />
             </Route>
             <Route path="/cart">
               <Cart items={items} />
