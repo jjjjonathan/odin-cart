@@ -2,7 +2,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background: #fafbf9;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 57%,
+    rgba(255, 231, 237, 1) 100%
+  );
+  height: 100vh;
 }
 
 header ul {
@@ -25,5 +31,10 @@ header li a {
 }
 
 header li a:hover {
-  background: lightgray;
+  background: rgb(231, 255, 231);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(231, 255, 231, 1) 100%
+  );
 }

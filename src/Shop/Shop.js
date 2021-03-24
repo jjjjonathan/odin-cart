@@ -1,5 +1,11 @@
 import React from "react";
+import "./Shop.css";
 
 export default function Shop(props) {
-  return <h2>Shop</h2>;
+  return (
+    <div>
+      <h3>Look for things to fill your Odincart.</h3>
+      <p className="lead">Remember, none of this is real.</p>
+    </div>
+  );
 }
