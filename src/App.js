@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home/Home.js";
 import Shop from "./Shop/Shop.js";
+import Cart from "./Cart/Cart";
 import "./App.css";
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
               <li>
                 <Link to="/shop">Shop</Link>
               </li>
+              <li>
+                <Link to="/cart">Cart</Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -53,7 +57,12 @@ function App() {
             <Route path="/shop">
               <Shop items={items} />
             </Route>
-            <Route path="/" component={Home} />
+            <Route path="/cart">
+              <Cart items={items} />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
           </Switch>
         </main>
       </div>
