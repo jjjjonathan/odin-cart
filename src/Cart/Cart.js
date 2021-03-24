@@ -1,7 +1,7 @@
 export default function Cart(props) {
   return (
     <div>
-      <h3>a la Cart</h3>
+      <h3>Odincart contains:</h3>
     </div>
   );
 }

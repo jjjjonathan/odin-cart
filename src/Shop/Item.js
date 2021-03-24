@@ -5,6 +5,7 @@ export default function Item(props) {
     <div className="item-card">
       <h4 className="item-title">{props.title}</h4>
       <p className="item-description">{props.description}</p>
+      <p className="price">${props.price}</p>
       <button
         data-index={props.index}
         type="button"

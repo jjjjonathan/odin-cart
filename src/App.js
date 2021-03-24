@@ -20,9 +20,22 @@ function App() {
       quantityInCart: 0,
     },
     {
-      title: "Ode in Cart",
+      title: "Ode in C (art)",
       description: "The hit single. Vinyl only",
-      price: 39,
+      price: 129,
+      quantityInCart: 0,
+    },
+    {
+      title: "Zesty Odinpops",
+      description: "Odin-flavored pop-type food product in zesty variety",
+      price: 9,
+      quantityInCart: 0,
+    },
+    {
+      title: "Odinware",
+      description:
+        "Completely safe computer software. Does important and necessary and completely safe things on your computer. Download now",
+      price: 29,
       quantityInCart: 0,
     },
     {
@@ -43,7 +56,6 @@ function App() {
 
   function handleAddToCartClick(event) {
     const clickedIndex = event.target.dataset.index;
-    console.log(clickedIndex);
     setItems(
       items.map((item, index) => {
         if (index === parseInt(clickedIndex)) {
