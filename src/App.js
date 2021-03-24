@@ -54,12 +54,15 @@ function App() {
     },
   ]);
 
-  function handleAddToCartClick(event) {
-    const clickedIndex = event.target.dataset.index;
+  function handleAddToCart(event) {
+    const clickedIndex = parseInt(event.target.dataset.index);
+    const selectedQuantity = parseInt(event.target[0].selectedOptions[0].value);
+
+    // console.log(clickedIndex, quantity);
     setItems(
       items.map((item, index) => {
-        if (index === parseInt(clickedIndex)) {
-          item.quantityInCart += 1;
+        if (index === clickedIndex) {
+          item.quantityInCart += selectedQuantity;
         }
         return item;
       })
@@ -95,7 +98,7 @@ function App() {
         <main>
           <Switch>
             <Route path="/shop">
-              <Shop items={items} onAddToCartClick={handleAddToCartClick} />
+              <Shop items={items} onAddToCart={handleAddToCart} />
             </Route>
             <Route path="/cart">
               <Cart items={items} />

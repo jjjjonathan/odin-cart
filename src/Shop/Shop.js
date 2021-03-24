@@ -15,7 +15,7 @@ export default function Shop(props) {
               title={item.title}
               description={item.description}
               price={item.price}
-              onAddToCartClick={props.onAddToCartClick}
+              onAddToCart={props.onAddToCart}
               index={index}
               key={index}
             />
