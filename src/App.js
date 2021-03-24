@@ -1,11 +1,12 @@
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home/Home.js";
 import Shop from "./Shop/Shop.js";
+import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div>
         <header>
           <nav>
             <ul>

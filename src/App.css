@@ -1,0 +1,29 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background: #fafbf9;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+header li {
+  float: left;
+}
+
+header li a {
+  display: block;
+  text-align: center;
+  padding: 18px;
+  text-decoration: none;
+  color: black;
+}
+
+header li a:hover {
+  background: lightgray;
+}
