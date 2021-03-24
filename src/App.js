@@ -58,11 +58,23 @@ function App() {
     const clickedIndex = parseInt(event.target.dataset.index);
     const selectedQuantity = parseInt(event.target[0].selectedOptions[0].value);
 
-    // console.log(clickedIndex, quantity);
     setItems(
       items.map((item, index) => {
         if (index === clickedIndex) {
           item.quantityInCart += selectedQuantity;
+        }
+        return item;
+      })
+    );
+  }
+
+  function handleRemoveFromCart(event) {
+    const clickedIndex = parseInt(event.target.dataset.index);
+
+    setItems(
+      items.map((item, index) => {
+        if (index === clickedIndex) {
+          item.quantityInCart = 0;
         }
         return item;
       })
@@ -98,7 +110,11 @@ function App() {
         <main>
           <Switch>
             <Route path="/shop">
-              <Shop items={items} onAddToCart={handleAddToCart} />
+              <Shop
+                items={items}
+                onAddToCart={handleAddToCart}
+                onRemoveFromCart={handleRemoveFromCart}
+              />
             </Route>
             <Route path="/cart">
               <Cart items={items} />

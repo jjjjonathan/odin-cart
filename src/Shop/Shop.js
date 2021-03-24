@@ -16,8 +16,10 @@ export default function Shop(props) {
               description={item.description}
               price={item.price}
               onAddToCart={props.onAddToCart}
+              onRemoveFromCart={props.onRemoveFromCart}
               index={index}
               key={index}
+              quantityInCart={item.quantityInCart}
             />
           );
         })}
