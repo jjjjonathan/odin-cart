@@ -117,7 +117,9 @@ function App() {
               />
             </Route>
             <Route path="/cart">
-              <Cart items={items} />
+              <Cart
+                cartItems={items.filter((item) => item.quantityInCart > 0)}
+              />
             </Route>
             <Route path="/">
               <Home />

@@ -113,3 +113,25 @@ header li a:hover {
 .success {
   color: darkgreen;
 }
+
+.cart {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cart-item {
+  border: 1px solid red;
+  padding: 20px;
+  margin: 10px;
+}
+
+.cart-item-title {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.cart-item-price {
+  float: right;
+  font-size: 1.5rem;
+}
