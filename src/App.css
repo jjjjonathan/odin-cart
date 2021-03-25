@@ -120,18 +120,37 @@ header li a:hover {
 }
 
 .cart-item {
-  border: 1px solid red;
-  padding: 20px;
-  margin: 10px;
+  border-bottom: 1px solid black;
+  padding: 30px;
+}
+
+.cart-item:last-child {
+  border: none;
 }
 
 .cart-item-title {
-  display: inline-block;
   font-size: 1.2rem;
   font-weight: 600;
+  padding: 10px auto;
+  margin: 5px 0;
 }
 
-.cart-item-price {
-  float: right;
+.cart-item-total-price {
   font-size: 1.5rem;
+  float: right;
+  margin-top: 30px;
+  font-weight: 700;
+}
+
+.cart-total {
+  font-size: 1.5rem;
+  float: right;
+  margin-top: 10px;
+  font-weight: 700;
+  padding: 30px;
+}
+
+.cart-total button {
+  display: block;
+  margin-top: 10px;
 }
