@@ -62,6 +62,13 @@ export default function Cart(props) {
                   </select>
                 </label>
               </div>
+              <button
+                type="button"
+                onClick={props.onRemoveFromCart}
+                data-index={item.index}
+              >
+                Remove from cart
+              </button>
             </div>
           );
         })}

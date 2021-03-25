@@ -131,7 +131,11 @@ function App() {
               />
             </Route>
             <Route path="/cart">
-              <Cart items={items} onQuantityChange={handleQuantityChange} />
+              <Cart
+                items={items}
+                onQuantityChange={handleQuantityChange}
+                onRemoveFromCart={handleRemoveFromCart}
+              />
             </Route>
             <Route path="/">
               <Home />
