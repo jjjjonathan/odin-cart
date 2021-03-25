@@ -81,6 +81,20 @@ function App() {
     );
   }
 
+  const handleQuantityChange = (event) => {
+    const changedIndex = parseInt(event.target.dataset.index);
+    const selectedQuantity = parseInt(event.target.selectedOptions[0].value);
+
+    setItems(
+      items.map((item, index) => {
+        if (index === changedIndex) {
+          item.quantityInCart = selectedQuantity;
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <BrowserRouter>
       <div>
@@ -117,9 +131,7 @@ function App() {
               />
             </Route>
             <Route path="/cart">
-              <Cart
-                cartItems={items.filter((item) => item.quantityInCart > 0)}
-              />
+              <Cart items={items} onQuantityChange={handleQuantityChange} />
             </Route>
             <Route path="/">
               <Home />
