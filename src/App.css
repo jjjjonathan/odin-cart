@@ -110,6 +110,11 @@ header li a:hover {
   font-weight: 600;
 }
 
+.item-form select {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
 .success {
   color: darkgreen;
 }
@@ -132,7 +137,15 @@ header li a:hover {
   font-size: 1.2rem;
   font-weight: 600;
   padding: 10px auto;
-  margin: 5px 0;
+}
+
+.cart-item-each-price,
+.cart-item-quantity {
+  margin: 8px 0;
+}
+
+.cart-item-quantity select {
+  margin-left: 5px;
 }
 
 .cart-item-total-price {
