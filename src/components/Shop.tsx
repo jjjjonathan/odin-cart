@@ -10,7 +10,7 @@ type ShopItem = {
 type ShopProps = {
   items: ShopItem[];
   onAddToCart: () => void;
-  onRemoveFromCart: () => number;
+  onRemoveFromCart: () => void;
 };
 
 const Shop = ({ items, onAddToCart, onRemoveFromCart }: ShopProps) => (
