@@ -1,11 +1,4 @@
-import Item from './Item';
-
-type ShopItem = {
-  title: string;
-  description: string;
-  price: number;
-  quantityInCart: number;
-};
+import Item, { ShopItem } from './Item';
 
 type ShopProps = {
   items: ShopItem[];
@@ -23,14 +16,11 @@ const Shop = ({ items, onAddToCart, onRemoveFromCart }: ShopProps) => (
       {items.map((item, index) => {
         return (
           <Item
-            title={item.title}
-            description={item.description}
-            price={item.price}
+            item={item}
             onAddToCart={onAddToCart}
             onRemoveFromCart={onRemoveFromCart}
             index={index}
             key={index}
-            quantityInCart={item.quantityInCart}
           />
         );
       })}
