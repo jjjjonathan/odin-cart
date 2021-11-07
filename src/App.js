@@ -1,54 +1,54 @@
-import React, { useState } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import Home from "./Home/Home.js";
-import Shop from "./Shop/Shop.js";
-import Cart from "./Cart/Cart";
-import "./App.css";
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Shop from './components/Shop';
+import Cart from './components/Cart';
+import './App.css';
 
 function App() {
   const [items, setItems] = useState([
     {
-      title: "Odinfeathers",
-      description: "Faux feathers in pastel gradients",
+      title: 'Odinfeathers',
+      description: 'Faux feathers in pastel gradients',
       price: 595,
       quantityInCart: 0,
     },
     {
-      title: "The Nondescript Odinstone",
-      description: "If you expected description, See above",
+      title: 'The Nondescript Odinstone',
+      description: 'If you expected description, See above',
       price: 9995,
       quantityInCart: 0,
     },
     {
-      title: "Ode in C (art)",
-      description: "The hit single. Vinyl only",
+      title: 'Ode in C (art)',
+      description: 'The hit single. Vinyl only',
       price: 129,
       quantityInCart: 0,
     },
     {
-      title: "Zesty Odinpops",
-      description: "Odin-flavored pop-type food product in zesty variety",
+      title: 'Zesty Odinpops',
+      description: 'Odin-flavored pop-type food product in zesty variety',
       price: 9,
       quantityInCart: 0,
     },
     {
-      title: "Odinware",
+      title: 'Odinware',
       description:
-        "Completely safe computer software. Does important and necessary and completely safe things on your computer. Download now",
+        'Completely safe computer software. Does important and necessary and completely safe things on your computer. Download now',
       price: 29,
       quantityInCart: 0,
     },
     {
-      title: "Odincart",
+      title: 'Odincart',
       description:
-        "Virtual shopping cart. Contains no real products nor is it itself a real product",
+        'Virtual shopping cart. Contains no real products nor is it itself a real product',
       price: 299,
       quantityInCart: 0,
     },
     {
-      title: "Non-Odin Stone with Description",
+      title: 'Non-Odin Stone with Description',
       description:
-        "A rock without Odin properties. Slight discount over Odin version",
+        'A rock without Odin properties. Slight discount over Odin version',
       price: 9989,
       quantityInCart: 0,
     },
@@ -64,7 +64,7 @@ function App() {
           item.quantityInCart += selectedQuantity;
         }
         return item;
-      })
+      }),
     );
   }
 
@@ -77,7 +77,7 @@ function App() {
           item.quantityInCart = 0;
         }
         return item;
-      })
+      }),
     );
   }
 
@@ -91,7 +91,7 @@ function App() {
           item.quantityInCart = selectedQuantity;
         }
         return item;
-      })
+      }),
     );
   };
 
