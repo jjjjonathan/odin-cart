@@ -1,9 +1,14 @@
 import { ShopItem } from './Item';
 import { RemoveFromCartHandler } from './CartStatus';
 
+export type QuantityChangeHandler = (
+  index: number,
+  newQuantity: number,
+) => void;
+
 type CartProps = {
   items: ShopItem[];
-  onQuantityChange: any; //fix
+  onQuantityChange: QuantityChangeHandler;
   onRemoveFromCart: RemoveFromCartHandler;
 };
 
@@ -56,8 +61,12 @@ const Cart = ({ items, onQuantityChange, onRemoveFromCart }: CartProps) => {
                     name="quantity"
                     id="quantity"
                     value={item.quantityInCart}
-                    onChange={onQuantityChange}
-                    data-index={item.storeIndex}
+                    onChange={(e) => {
+                      onQuantityChange(
+                        item.storeIndex,
+                        parseInt(e.target.value),
+                      );
+                    }}
                   >
                     <option value="1">1</option>
                     <option value="2">2</option>

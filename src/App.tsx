@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Shop from './components/Shop';
-import Cart from './components/Cart';
+import Cart, { QuantityChangeHandler } from './components/Cart';
+import {
+  AddToCartHandler,
+  RemoveFromCartHandler,
+} from './components/CartStatus';
 import './App.css';
 
-function App() {
+const App = () => {
   const [items, setItems] = useState([
     {
       title: 'Odinfeathers',
@@ -54,7 +58,10 @@ function App() {
     },
   ]);
 
-  function handleAddToCart(selectedIndex, selectedQuantity) {
+  const handleAddToCart: AddToCartHandler = (
+    selectedIndex,
+    selectedQuantity,
+  ) => {
     setItems(
       items.map((item, index) => {
         if (index === selectedIndex) {
@@ -63,9 +70,9 @@ function App() {
         return item;
       }),
     );
-  }
+  };
 
-  function handleRemoveFromCart(selectedIndex) {
+  const handleRemoveFromCart: RemoveFromCartHandler = (selectedIndex) => {
     setItems(
       items.map((item, index) => {
         if (index === selectedIndex) {
@@ -74,18 +81,19 @@ function App() {
         return item;
       }),
     );
-  }
+  };
 
-  const handleQuantityChange = (event) => {
-    const changedIndex = parseInt(event.target.dataset.index);
-    const selectedQuantity = parseInt(event.target.selectedOptions[0].value);
-
+  const handleQuantityChange: QuantityChangeHandler = (
+    selectedIndex,
+    newQuantity,
+  ) => {
     setItems(
       items.map((item, index) => {
-        if (index === changedIndex) {
-          item.quantityInCart = selectedQuantity;
+        if (index === selectedIndex) {
+          return { ...item, quantityInCart: newQuantity };
+        } else {
+          return item;
         }
-        return item;
       }),
     );
   };
@@ -107,7 +115,6 @@ function App() {
                   Cart
                   <span className="cart-pill">
                     {items.reduce((accumulator, item) => {
-                      // console.log(item.title, item.quantityInCart);
                       return accumulator + item.quantityInCart;
                     }, 0)}
                   </span>
@@ -140,6 +147,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
