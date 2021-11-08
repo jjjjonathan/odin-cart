@@ -1,97 +1,100 @@
-import React, { useState } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import Home from "./Home/Home.js";
-import Shop from "./Shop/Shop.js";
-import Cart from "./Cart/Cart";
-import "./App.css";
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Shop from './components/Shop';
+import Cart, { QuantityChangeHandler } from './components/Cart';
+import {
+  AddToCartHandler,
+  RemoveFromCartHandler,
+} from './components/CartStatus';
+import './App.css';
 
-function App() {
+const App = () => {
   const [items, setItems] = useState([
     {
-      title: "Odinfeathers",
-      description: "Faux feathers in pastel gradients",
+      title: 'Odinfeathers',
+      description: 'Faux feathers in pastel gradients',
       price: 595,
       quantityInCart: 0,
     },
     {
-      title: "The Nondescript Odinstone",
-      description: "If you expected description, See above",
+      title: 'The Nondescript Odinstone',
+      description: 'If you expected description, See above',
       price: 9995,
       quantityInCart: 0,
     },
     {
-      title: "Ode in C (art)",
-      description: "The hit single. Vinyl only",
+      title: 'Ode in C (art)',
+      description: 'The hit single. Vinyl only',
       price: 129,
       quantityInCart: 0,
     },
     {
-      title: "Zesty Odinpops",
-      description: "Odin-flavored pop-type food product in zesty variety",
+      title: 'Zesty Odinpops',
+      description: 'Odin-flavored pop-type food product in zesty variety',
       price: 9,
       quantityInCart: 0,
     },
     {
-      title: "Odinware",
+      title: 'Odinware',
       description:
-        "Completely safe computer software. Does important and necessary and completely safe things on your computer. Download now",
+        'Completely safe computer software. Does important and necessary and completely safe things on your computer. Download now',
       price: 29,
       quantityInCart: 0,
     },
     {
-      title: "Odincart",
+      title: 'Odincart',
       description:
-        "Virtual shopping cart. Contains no real products nor is it itself a real product",
+        'Virtual shopping cart. Contains no real products nor is it itself a real product',
       price: 299,
       quantityInCart: 0,
     },
     {
-      title: "Non-Odin Stone with Description",
+      title: 'Non-Odin Stone with Description',
       description:
-        "A rock without Odin properties. Slight discount over Odin version",
+        'A rock without Odin properties. Slight discount over Odin version',
       price: 9989,
       quantityInCart: 0,
     },
   ]);
 
-  function handleAddToCart(event) {
-    const clickedIndex = parseInt(event.target.dataset.index);
-    const selectedQuantity = parseInt(event.target[0].selectedOptions[0].value);
-
+  const handleAddToCart: AddToCartHandler = (
+    selectedIndex,
+    selectedQuantity,
+  ) => {
     setItems(
       items.map((item, index) => {
-        if (index === clickedIndex) {
+        if (index === selectedIndex) {
           item.quantityInCart += selectedQuantity;
         }
         return item;
-      })
+      }),
     );
-  }
+  };
 
-  function handleRemoveFromCart(event) {
-    const clickedIndex = parseInt(event.target.dataset.index);
-
+  const handleRemoveFromCart: RemoveFromCartHandler = (selectedIndex) => {
     setItems(
       items.map((item, index) => {
-        if (index === clickedIndex) {
+        if (index === selectedIndex) {
           item.quantityInCart = 0;
         }
         return item;
-      })
+      }),
     );
-  }
+  };
 
-  const handleQuantityChange = (event) => {
-    const changedIndex = parseInt(event.target.dataset.index);
-    const selectedQuantity = parseInt(event.target.selectedOptions[0].value);
-
+  const handleQuantityChange: QuantityChangeHandler = (
+    selectedIndex,
+    newQuantity,
+  ) => {
     setItems(
       items.map((item, index) => {
-        if (index === changedIndex) {
-          item.quantityInCart = selectedQuantity;
+        if (index === selectedIndex) {
+          return { ...item, quantityInCart: newQuantity };
+        } else {
+          return item;
         }
-        return item;
-      })
+      }),
     );
   };
 
@@ -112,7 +115,6 @@ function App() {
                   Cart
                   <span className="cart-pill">
                     {items.reduce((accumulator, item) => {
-                      // console.log(item.title, item.quantityInCart);
                       return accumulator + item.quantityInCart;
                     }, 0)}
                   </span>
@@ -145,6 +147,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

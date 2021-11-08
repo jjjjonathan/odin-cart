@@ -1,13 +1,24 @@
-export default function Cart(props) {
-  const cartItems = props.items
-    .map((item, index) => {
-      item.index = index;
-      return item;
-    })
+import { ShopItem } from './Item';
+import { RemoveFromCartHandler } from './CartStatus';
+
+export type QuantityChangeHandler = (
+  index: number,
+  newQuantity: number,
+) => void;
+
+type CartProps = {
+  items: ShopItem[];
+  onQuantityChange: QuantityChangeHandler;
+  onRemoveFromCart: RemoveFromCartHandler;
+};
+
+const Cart = ({ items, onQuantityChange, onRemoveFromCart }: CartProps) => {
+  const cartItems = items
+    .map((item, index) => ({ ...item, storeIndex: index }))
     .filter((item) => item.quantityInCart > 0);
 
-  const CartTotal = (props) => {
-    if (cartItems.length !== 0) {
+  const cartTotal = () => {
+    if (cartItems.length > 0) {
       return (
         <div className="cart-total">
           Total: $
@@ -22,7 +33,7 @@ export default function Cart(props) {
     }
   };
 
-  const CartLead = (props) => {
+  const cartLead = () => {
     if (cartItems.length === 0) {
       return <p className="lead">nothing at the moment, apparently.</p>;
     } else {
@@ -33,11 +44,11 @@ export default function Cart(props) {
   return (
     <div>
       <h3>Odincart contains:</h3>
-      <CartLead cartItems={cartItems} />
+      {cartLead()}
       <div className="cart">
         {cartItems.map((item) => {
           return (
-            <div className="cart-item" key={item.index}>
+            <div className="cart-item" key={item.storeIndex}>
               <div className="cart-item-total-price">
                 ${item.quantityInCart * item.price}
               </div>
@@ -50,8 +61,12 @@ export default function Cart(props) {
                     name="quantity"
                     id="quantity"
                     value={item.quantityInCart}
-                    onChange={props.onQuantityChange}
-                    data-index={item.index}
+                    onChange={(e) => {
+                      onQuantityChange(
+                        item.storeIndex,
+                        parseInt(e.target.value),
+                      );
+                    }}
                   >
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -64,16 +79,17 @@ export default function Cart(props) {
               </div>
               <button
                 type="button"
-                onClick={props.onRemoveFromCart}
-                data-index={item.index}
+                onClick={() => onRemoveFromCart(item.storeIndex)}
               >
                 Remove from cart
               </button>
             </div>
           );
         })}
-        <CartTotal cartItems={cartItems} />
+        {cartTotal()}
       </div>
     </div>
   );
-}
+};
+
+export default Cart;

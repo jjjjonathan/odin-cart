@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart Status Component should display dropdown of quantity options when quantity is 0 1`] = `
+<div
+  className="item-form"
+>
+  <form
+    data-index={0}
+    noValidate={true}
+    onSubmit={[MockFunction]}
+  >
+    <label
+      htmlFor="quantity"
+    >
+      Qty:
+    </label>
+    <select
+      id="quantity"
+      name="quantity"
+    >
+      <option
+        value="1"
+      >
+        1
+      </option>
+      <option
+        value="2"
+      >
+        2
+      </option>
+      <option
+        value="3"
+      >
+        3
+      </option>
+      <option
+        value="4"
+      >
+        4
+      </option>
+      <option
+        value="5"
+      >
+        5
+      </option>
+      <option
+        value="6"
+      >
+        6
+      </option>
+    </select>
+    <button
+      type="submit"
+    >
+      Add to cart
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Cart Status Component should display success message and remove button when quantity is greater than 0 1`] = `
+<div
+  className="item-form"
+>
+  <p
+    className="success"
+  >
+    Added 
+    3
+     to cart!
+  </p>
+  <button
+    data-index={0}
+    onClick={[MockFunction]}
+    type="button"
+  >
+    Remove from cart
+  </button>
+</div>
+`;

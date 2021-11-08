@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item Component should match snapshot 1`] = `
+<div
+  className="item-card"
+>
+  <h4
+    className="item-title"
+  >
+    Odinfeathers
+  </h4>
+  <p
+    className="item-description"
+  >
+    Faux feathers in pastel gradients
+  </p>
+  <p
+    className="price"
+  >
+    $
+    595
+  </p>
+  <div
+    className="item-form"
+  >
+    <form
+      data-index={0}
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <label
+        htmlFor="quantity"
+      >
+        Qty:
+      </label>
+      <select
+        id="quantity"
+        name="quantity"
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+        <option
+          value="3"
+        >
+          3
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="5"
+        >
+          5
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+      </select>
+      <button
+        type="submit"
+      >
+        Add to cart
+      </button>
+    </form>
+  </div>
+</div>
+`;
