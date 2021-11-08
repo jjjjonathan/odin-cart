@@ -19,7 +19,7 @@ const CartStatus = ({
   const [selectedQuantity, setSelectedQuantity] = useState<string>('1');
 
   useEffect(() => {
-    setSelectedQuantity(quantityInCart.toString());
+    if (quantityInCart > 0) setSelectedQuantity(quantityInCart.toString());
   }, [quantityInCart]);
 
   const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
