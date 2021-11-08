@@ -1,5 +1,8 @@
 import React from 'react';
-import CartStatus from './CartStatus';
+import CartStatus, {
+  AddToCartHandler,
+  RemoveFromCartHandler,
+} from './CartStatus';
 
 export type ShopItem = {
   title: string;
@@ -10,21 +13,12 @@ export type ShopItem = {
 
 type ItemProps = {
   item: ShopItem;
-  onAddToCart: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onRemoveFromCart: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onAddToCart: AddToCartHandler;
+  onRemoveFromCart: RemoveFromCartHandler;
   index: number;
 };
 
 const Item = ({ item, onAddToCart, onRemoveFromCart, index }: ItemProps) => {
-  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    onAddToCart(event);
-  };
-
-  const handleRemoveFromCart = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onRemoveFromCart(event);
-  };
-
   return (
     <div className="item-card">
       <h4 className="item-title">{item.title}</h4>
@@ -32,8 +26,8 @@ const Item = ({ item, onAddToCart, onRemoveFromCart, index }: ItemProps) => {
       <p className="price">${item.price}</p>
       <CartStatus
         quantityInCart={item.quantityInCart}
-        onAddToCart={handleAddToCart}
-        onRemoveFromCart={handleRemoveFromCart}
+        onAddToCart={onAddToCart}
+        onRemoveFromCart={onRemoveFromCart}
         index={index}
       />
     </div>
