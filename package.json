@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@types/eslint-scope": "^3.7.1",
     "@types/react-test-renderer": "^17.0.1",
     "gh-pages": "^3.1.0",
     "react-test-renderer": "^17.0.2"

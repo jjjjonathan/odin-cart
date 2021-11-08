@@ -54,13 +54,10 @@ function App() {
     },
   ]);
 
-  function handleAddToCart(event) {
-    const clickedIndex = parseInt(event.target.dataset.index);
-    const selectedQuantity = parseInt(event.target[0].selectedOptions[0].value);
-
+  function handleAddToCart(selectedIndex, selectedQuantity) {
     setItems(
       items.map((item, index) => {
-        if (index === clickedIndex) {
+        if (index === selectedIndex) {
           item.quantityInCart += selectedQuantity;
         }
         return item;
@@ -68,12 +65,10 @@ function App() {
     );
   }
 
-  function handleRemoveFromCart(event) {
-    const clickedIndex = parseInt(event.target.dataset.index);
-
+  function handleRemoveFromCart(selectedIndex) {
     setItems(
       items.map((item, index) => {
-        if (index === clickedIndex) {
+        if (index === selectedIndex) {
           item.quantityInCart = 0;
         }
         return item;

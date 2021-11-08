@@ -1,9 +1,10 @@
 import Item, { ShopItem } from './Item';
+import { AddToCartHandler, RemoveFromCartHandler } from './CartStatus';
 
 type ShopProps = {
   items: ShopItem[];
-  onAddToCart: () => void;
-  onRemoveFromCart: () => void;
+  onAddToCart: AddToCartHandler;
+  onRemoveFromCart: RemoveFromCartHandler;
 };
 
 const Shop = ({ items, onAddToCart, onRemoveFromCart }: ShopProps) => (

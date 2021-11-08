@@ -37,57 +37,53 @@ Array [
       <div
         className="item-form"
       >
-        <form
-          data-index={0}
-          noValidate={true}
-          onSubmit={[Function]}
+        <label
+          htmlFor="quantity"
         >
-          <label
-            htmlFor="quantity"
+          Qty:
+        </label>
+        <select
+          id="quantity"
+          name="quantity"
+          onChange={[Function]}
+          value="1"
+        >
+          <option
+            value="1"
           >
-            Qty:
-          </label>
-          <select
-            id="quantity"
-            name="quantity"
+            1
+          </option>
+          <option
+            value="2"
           >
-            <option
-              value="1"
-            >
-              1
-            </option>
-            <option
-              value="2"
-            >
-              2
-            </option>
-            <option
-              value="3"
-            >
-              3
-            </option>
-            <option
-              value="4"
-            >
-              4
-            </option>
-            <option
-              value="5"
-            >
-              5
-            </option>
-            <option
-              value="6"
-            >
-              6
-            </option>
-          </select>
-          <button
-            type="submit"
+            2
+          </option>
+          <option
+            value="3"
           >
-            Add to cart
-          </button>
-        </form>
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+        </select>
+        <button
+          onClick={[Function]}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
     <div
@@ -112,57 +108,53 @@ Array [
       <div
         className="item-form"
       >
-        <form
-          data-index={1}
-          noValidate={true}
-          onSubmit={[Function]}
+        <label
+          htmlFor="quantity"
         >
-          <label
-            htmlFor="quantity"
+          Qty:
+        </label>
+        <select
+          id="quantity"
+          name="quantity"
+          onChange={[Function]}
+          value="1"
+        >
+          <option
+            value="1"
           >
-            Qty:
-          </label>
-          <select
-            id="quantity"
-            name="quantity"
+            1
+          </option>
+          <option
+            value="2"
           >
-            <option
-              value="1"
-            >
-              1
-            </option>
-            <option
-              value="2"
-            >
-              2
-            </option>
-            <option
-              value="3"
-            >
-              3
-            </option>
-            <option
-              value="4"
-            >
-              4
-            </option>
-            <option
-              value="5"
-            >
-              5
-            </option>
-            <option
-              value="6"
-            >
-              6
-            </option>
-          </select>
-          <button
-            type="submit"
+            2
+          </option>
+          <option
+            value="3"
           >
-            Add to cart
-          </button>
-        </form>
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+        </select>
+        <button
+          onClick={[Function]}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   </div>,
